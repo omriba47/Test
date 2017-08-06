@@ -10,6 +10,7 @@ namespace test1
         static void Main(string[] args)
         {
             Console.WriteLine("This is my new git project");
+            Console.WriteLine("Added one line");
         }
     }
 }
