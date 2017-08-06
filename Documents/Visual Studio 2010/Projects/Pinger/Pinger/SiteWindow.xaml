@@ -1,0 +1,34 @@
+﻿<Window x:Class="Pinger.SiteWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SiteWindow" Height="275" Width="610" WindowStyle="SingleBorderWindow" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" FlowDirection="RightToLeft" SizeToContent="Height">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="114*" />
+            <RowDefinition Height="132*" />
+        </Grid.RowDefinitions>
+        <DataGrid AutoGenerateColumns="False" Name="MyDataGrid" CanUserAddRows="False"  FlowDirection="RightToLeft" CanUserResizeColumns="False" CanUserReorderColumns="False" CanUserSortColumns="False" Grid.RowSpan="2" CanUserResizeRows="False" SelectionMode="Single" FontWeight="Normal" FontSize="16">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" IsReadOnly="True"   Binding="{Binding CompId}" Width="40"></DataGridTextColumn>
+                <DataGridTextColumn Header="רכיב" IsReadOnly="True" Binding="{Binding CompName}" Width="130"></DataGridTextColumn>
+                <DataGridTextColumn Header="IP" IsReadOnly="True"  Binding="{Binding CompIp}" Width="150"></DataGridTextColumn>
+                <DataGridTextColumn Header="Ping" IsReadOnly="True"  Binding="{Binding Status}" Width="90" SortDirection="{x:Null}" CanUserSort="False"></DataGridTextColumn>
+                <DataGridTextColumn Header="עדכון אחרון" IsReadOnly="True"  Binding="{Binding LastTime}" Width="180"></DataGridTextColumn>
+            </DataGrid.Columns>
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Status}" Value="Up">
+                            <Setter Property="Background" Value="Green"></Setter>
+                        </DataTrigger>
+                        
+                        <DataTrigger Binding="{Binding Status}" Value="Down">
+                            <Setter Property="Background" Value="Red"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+        </DataGrid>
+    </Grid>
+</Window>
