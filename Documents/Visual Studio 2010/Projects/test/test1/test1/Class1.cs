@@ -7,7 +7,7 @@ namespace test1
 {
     class Class1
     {
-        string s = "LOLsadad";
+        string s = "LOLsadadשדגש";
 		
 		
     }
